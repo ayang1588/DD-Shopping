@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dangdang.dao.UserDao">
+    <resultMap id="BaseResultMap" type="com.dangdang.pojo.User">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="user_level" property="userLevel" jdbcType="INTEGER"/>
+        <result column="user_integral" property="userIntegral" jdbcType="INTEGER"/>
+        <result column="is_email_verify" property="isEmailVerify" jdbcType="INTEGER"/>
+        <result column="email_verify_code" property="emailVerifyCode" jdbcType="VARCHAR"/>
+        <result column="regist_time" property="registTime" jdbcType="BIGINT"/>
+        <result column="last_login_time" property="lastLoginTime" jdbcType="BIGINT"/>
+        <result column="last_login_ip" property="lastLoginIp" jdbcType="VARCHAR"/>
+        <result column="account_balance" property="accountBalance" jdbcType="DOUBLE"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, email, nickname, password, user_level, user_integral, is_email_verify, email_verify_code,
+        regist_time, last_login_time, last_login_ip, account_balance
+    </sql>
+
+    <select id="selectUserByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from d_user
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectUserByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from d_user
+        where email = #{email,jdbcType=VARCHAR}
+    </select>
+
+    <select id="isUserExist" resultType="int" parameterType="java.lang.String">
+        select count(*) from d_user where email = #{email, jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertUser" parameterType="com.dangdang.pojo.User">
+        insert into d_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="nickname != null">
+                nickname,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="userLevel != null">
+                user_level,
+            </if>
+            <if test="userIntegral != null">
+                user_integral,
+            </if>
+            <if test="isEmailVerify != null">
+                is_email_verify,
+            </if>
+            <if test="emailVerifyCode != null">
+                email_verify_code,
+            </if>
+            <if test="registTime != null">
+                regist_time,
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time,
+            </if>
+            <if test="lastLoginIp != null">
+                last_login_ip,
+            </if>
+            <if test="accountBalance != null">
+                account_balance,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null">
+                #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="userLevel != null">
+                #{userLevel,jdbcType=INTEGER},
+            </if>
+            <if test="userIntegral != null">
+                #{userIntegral,jdbcType=INTEGER},
+            </if>
+            <if test="isEmailVerify != null">
+                #{isEmailVerify,jdbcType=INTEGER},
+            </if>
+            <if test="emailVerifyCode != null">
+                #{emailVerifyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="registTime != null">
+                #{registTime,jdbcType=BIGINT},
+            </if>
+            <if test="lastLoginTime != null">
+                #{lastLoginTime,jdbcType=BIGINT},
+            </if>
+            <if test="lastLoginIp != null">
+                #{lastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="accountBalance != null">
+                #{accountBalance,jdbcType=DOUBLE},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateUserByPrimaryKey" parameterType="com.dangdang.pojo.User">
+        update d_user
+        <set>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="userLevel != null">
+                user_level = #{userLevel,jdbcType=INTEGER},
+            </if>
+            <if test="userIntegral != null">
+                user_integral = #{userIntegral,jdbcType=INTEGER},
+            </if>
+            <if test="isEmailVerify != null">
+                is_email_verify = #{isEmailVerify,jdbcType=INTEGER},
+            </if>
+            <if test="emailVerifyCode != null">
+                email_verify_code = #{emailVerifyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="registTime != null">
+                regist_time = #{registTime,jdbcType=BIGINT},
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time = #{lastLoginTime,jdbcType=BIGINT},
+            </if>
+            <if test="lastLoginIp != null">
+                last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="accountBalance != null">
+                account_balance = #{accountBalance,jdbcType=DOUBLE},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateUserByEmail" parameterType="com.dangdang.pojo.User">
+        update d_user
+        <set>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="userLevel != null">
+                user_level = #{userLevel,jdbcType=INTEGER},
+            </if>
+            <if test="userIntegral != null">
+                user_integral = #{userIntegral,jdbcType=INTEGER},
+            </if>
+            <if test="isEmailVerify != null">
+                is_email_verify = #{isEmailVerify,jdbcType=INTEGER},
+            </if>
+            <if test="emailVerifyCode != null">
+                email_verify_code = #{emailVerifyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="registTime != null">
+                regist_time = #{registTime,jdbcType=BIGINT},
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time = #{lastLoginTime,jdbcType=BIGINT},
+            </if>
+            <if test="lastLoginIp != null">
+                last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="accountBalance != null">
+                account_balance = #{accountBalance,jdbcType=DOUBLE},
+            </if>
+        </set>
+        where email = #{email,jdbcType=VARCHAR}
+    </update>
+</mapper>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dangdang.dao.BookDao">
+    <resultMap id="BookResultMap" type="com.dangdang.pojo.Book">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="product_id" property="productId" jdbcType="INTEGER"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="publishing" property="publishing" jdbcType="VARCHAR"/>
+        <result column="publish_time" property="publishTime" jdbcType="BIGINT"/>
+        <result column="which_edtion" property="whichEdtion" jdbcType="VARCHAR"/>
+        <result column="total_page" property="totalPage" jdbcType="VARCHAR"/>
+        <result column="word_number" property="wordNumber" jdbcType="VARCHAR"/>
+        <result column="book_size" property="bookSize" jdbcType="VARCHAR"/>
+        <result column="paper_type" property="paperType" jdbcType="VARCHAR"/>
+        <result column="print_time" property="printTime" jdbcType="BIGINT"/>
+        <result column="print_number" property="printNumber" jdbcType="VARCHAR"/>
+        <result column="isbn" property="isbn" jdbcType="VARCHAR"/>
+        <result column="pack_type" property="packType" jdbcType="VARCHAR"/>
+        <result column="content_summary" property="contentSummary" jdbcType="LONGVARCHAR"/>
+        <result column="author_summary" property="authorSummary" jdbcType="LONGVARCHAR"/>
+        <result column="catalogue" property="catalogue" jdbcType="LONGVARCHAR"/>
+        <result column="media_comments" property="mediaComments" jdbcType="LONGVARCHAR"/>
+        <association property="product" column="pid" resultMap="ProductResultMap"/>
+    </resultMap>
+
+    <resultMap id="ProductResultMap" type="com.dangdang.pojo.Product" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="product_name" property="productName" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="add_time" property="addTime" jdbcType="BIGINT" />
+        <result column="fixed_price" property="fixedPrice" jdbcType="DOUBLE" />
+        <result column="dang_price" property="dangPrice" jdbcType="DOUBLE" />
+        <result column="keywords" property="keywords" jdbcType="VARCHAR" />
+        <result column="has_deleted" property="hasDeleted" jdbcType="SMALLINT" />
+        <result column="product_pic" property="productPic" jdbcType="VARCHAR" />
+        <result column="purchase_times" property="purchaseTimes" jdbcType="INTEGER" />
+        <result column="collection_times" property="collectionTimes" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, product_id, author, publishing, publish_time, which_edtion, total_page, word_number,
+        book_size, paper_type, print_time, print_number, isbn, pack_type,
+        content_summary, author_summary, catalogue, media_comments
+    </sql>
+
+    <sql id="Book_Column_List">
+        b.id as id,
+        b.product_id,
+        b.author,
+        b.publishing,
+        publish_time,
+        b.which_edtion,
+        b.total_page,
+        b.word_number,
+        b.book_size,
+        b.paper_type,
+        b.print_time,
+        b.print_number,
+        b.isbn,
+        b.pack_type,
+        b.content_summary,
+        b.author_summary,
+        b.catalogue,
+        b.media_comments,
+        b.product_id as pid,
+        p.product_name,
+        p.description,
+        p.add_time,
+        p.fixed_price,
+        p.dang_price,
+        p.keywords,
+        p.has_deleted,
+        p.product_pic,
+        p.purchase_times,
+        p.collection_times
+    </sql>
+    
+    <sql id="order_condition">
+        <if test="params.orderType == 0">
+            p.purchase_times DESC
+        </if>
+        <if test="params.orderType == 1">
+            p.collection_times DESC
+        </if>
+        <if test="params.orderType == 2">
+            p.dang_price ASC
+        </if>
+        <if test="params.orderType == 3">
+            b.publish_time DESC
+        </if>
+    </sql>
+
+    <select id="selectBookByPrimaryKey" resultMap="BookResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Book_Column_List"/>
+        from d_book b left join d_product p on b.product_id = p.id
+        where b.id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteBookByPrimaryKey" parameterType="java.lang.Integer">
+        delete from d_book
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insertBook" parameterType="com.dangdang.pojo.Book">
+        insert into d_book
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="productId != null">
+                product_id,
+            </if>
+            <if test="author != null">
+                author,
+            </if>
+            <if test="publishing != null">
+                publishing,
+            </if>
+            <if test="publishTime != null">
+                publish_time,
+            </if>
+            <if test="whichEdtion != null">
+                which_edtion,
+            </if>
+            <if test="totalPage != null">
+                total_page,
+            </if>
+            <if test="wordNumber != null">
+                word_number,
+            </if>
+            <if test="bookSize != null">
+                book_size,
+            </if>
+            <if test="paperType != null">
+                paper_type,
+            </if>
+            <if test="printTime != null">
+                print_time,
+            </if>
+            <if test="printNumber != null">
+                print_number,
+            </if>
+            <if test="isbn != null">
+                isbn,
+            </if>
+            <if test="packType != null">
+                pack_type,
+            </if>
+            <if test="contentSummary != null">
+                content_summary,
+            </if>
+            <if test="authorSummary != null">
+                author_summary,
+            </if>
+            <if test="catalogue != null">
+                catalogue,
+            </if>
+            <if test="mediaComments != null">
+                media_comments,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="productId != null">
+                #{productId,jdbcType=INTEGER},
+            </if>
+            <if test="author != null">
+                #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="publishing != null">
+                #{publishing,jdbcType=VARCHAR},
+            </if>
+            <if test="publishTime != null">
+                #{publishTime,jdbcType=BIGINT},
+            </if>
+            <if test="whichEdtion != null">
+                #{whichEdtion,jdbcType=VARCHAR},
+            </if>
+            <if test="totalPage != null">
+                #{totalPage,jdbcType=VARCHAR},
+            </if>
+            <if test="wordNumber != null">
+                #{wordNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="bookSize != null">
+                #{bookSize,jdbcType=VARCHAR},
+            </if>
+            <if test="paperType != null">
+                #{paperType,jdbcType=VARCHAR},
+            </if>
+            <if test="printTime != null">
+                #{printTime,jdbcType=BIGINT},
+            </if>
+            <if test="printNumber != null">
+                #{printNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="isbn != null">
+                #{isbn,jdbcType=VARCHAR},
+            </if>
+            <if test="packType != null">
+                #{packType,jdbcType=VARCHAR},
+            </if>
+            <if test="contentSummary != null">
+                #{contentSummary,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="authorSummary != null">
+                #{authorSummary,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="catalogue != null">
+                #{catalogue,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="mediaComments != null">
+                #{mediaComments,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateBookByPrimaryKey" parameterType="com.dangdang.pojo.Book">
+        update d_book
+        <set>
+            <if test="productId != null">
+                product_id = #{productId,jdbcType=INTEGER},
+            </if>
+            <if test="author != null">
+                author = #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="publishing != null">
+                publishing = #{publishing,jdbcType=VARCHAR},
+            </if>
+            <if test="publishTime != null">
+                publish_time = #{publishTime,jdbcType=BIGINT},
+            </if>
+            <if test="whichEdtion != null">
+                which_edtion = #{whichEdtion,jdbcType=VARCHAR},
+            </if>
+            <if test="totalPage != null">
+                total_page = #{totalPage,jdbcType=VARCHAR},
+            </if>
+            <if test="wordNumber != null">
+                word_number = #{wordNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="bookSize != null">
+                book_size = #{bookSize,jdbcType=VARCHAR},
+            </if>
+            <if test="paperType != null">
+                paper_type = #{paperType,jdbcType=VARCHAR},
+            </if>
+            <if test="printTime != null">
+                print_time = #{printTime,jdbcType=BIGINT},
+            </if>
+            <if test="printNumber != null">
+                print_number = #{printNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="isbn != null">
+                isbn = #{isbn,jdbcType=VARCHAR},
+            </if>
+            <if test="packType != null">
+                pack_type = #{packType,jdbcType=VARCHAR},
+            </if>
+            <if test="contentSummary != null">
+                content_summary = #{contentSummary,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="authorSummary != null">
+                author_summary = #{authorSummary,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="catalogue != null">
+                catalogue = #{catalogue,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="mediaComments != null">
+                media_comments = #{mediaComments,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectBookByCategoryId" parameterType="com.dangdang.commons.pagination.vo.Page" resultMap="BookResultMap">
+        select
+        <include refid="Book_Column_List"/>
+        from d_category_product cp left join d_product p on cp.product_id = p.id
+                                    left join d_book b on b.product_id = p.id
+        where cp.category_id = #{params.id,jdbcType=INTEGER}
+        order by <include refid="order_condition"/>
+    </select>
+
+    <select id="selectHotSellBooks" parameterType="com.dangdang.commons.pagination.vo.Page" resultMap="BookResultMap">
+        select
+        <include refid="Book_Column_List"/>
+        from d_product p
+        left join d_book b on b.product_id = p.id
+        order by <include refid="order_condition"/>
+    </select>
+
+    <select id="getALlRowNum" resultType="java.lang.Integer">
+        select count(*) from d_book
+    </select>
+</mapper>

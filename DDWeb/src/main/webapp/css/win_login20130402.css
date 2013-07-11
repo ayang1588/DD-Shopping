@@ -1,0 +1,96 @@
+﻿@charset "utf-8";
+.clearfix:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.clearfix{zoom:1;}
+.winlogin_register input{font-family:Arial,"\5b8b\4f53"}
+
+/*注册注册弹窗*/
+.winlogin_register{width:414px;overflow:hidden;font-size:12px;color:#404040;background:#fff;}
+.winlogin_register a{color:#1a66b3;text-decoration:none;}
+.winlogin_register a:hover{color:#1a66b3;text-decoration:underline;}
+.winlogin_register_top{height:4px;width:414px;background:url(/images/winlogin_sprites.png) no-repeat 0 0;overflow:hidden;}
+.winlogin_register_bottom{height:4px;width:414px;background:url(/images/winlogin_sprites.png) no-repeat 0 -4px;overflow:hidden;}
+.winlogin_register_border{width:412px;border-left:1px solid #b3b3b3;border-right:1px solid #b3b3b3;}
+.winlogin_register_box{border-left:2px solid #f4f4f4;border-right:2px solid #f4f4f4;}
+.winlogin_register_box h3{width:386px;height:26px;margin:0 auto 31px;padding:16px 0 0 10px;border-bottom:1px solid #d9d9d9;position:relative;}
+.winlogin_register_box .tab{float:left;height:25px;width:111px;margin-right:9px;background:url(/images/winlogin_sprites.png) no-repeat 0 -8px;line-height:26px;text-align:center;color:#a7a7a7;font-weight:bold;font-size:14px;padding-top:1px;overflow:hidden;}
+.winlogin_register_box .tab:hover{color:#404040;background-position:-230px -8px;padding-bottom:10px;margin-bottom:-10px;position:relative;text-decoration:none;}
+.winlogin_register_box .now,.winlogin_register_box .now:hover{background-position:-115px -8px;padding-bottom:10px;margin-bottom:-10px;cursor:default;color:#666;position:relative;}
+.winlogin_register_box .close{display:block;width:14px;height:14px;line-height:42px;overflow:hidden;position:absolute;right:0;top:4px;background:url(/images/winlogin_sprites.png) no-repeat -345px -10px;}
+.winlogin_register_box .clearfix{height:56px;}
+.winlogin_register_box label{float:left;width:84px;padding:7px 14px 0 0;text-align:right;}
+.winlogin_register_box .winlogin_input{float:left;width:235px;height:24px;border:1px solid #d9d9d9;overflow:hidden;background:#fff;}
+.winlogin_register_box .clearfix input{border:1px solid #fff;width:227px;height:21px;padding:1px 0 0 6px;margin:0;*margin-top:-1px;line-height:21px;font-size:12px;color:#404040;}
+.winlogin_register_box .clearfix input.tip{border:1px solid #fff;}
+.winlogin_register_box .clearfix input.focus{border:1px solid #66ccff;}
+.winlogin_register_box .hint{display:block;clear:both;padding:6px 0 0 101px;color:#9c9c9c;width:307px;}
+.winlogin_register_box .error{display:block;clear:both;padding:5px 0 0 101px;color:#c30;}
+.winlogin_register_box .correct{float:left;width:16px;height:16px;overflow:hidden;background:url(/images/winlogin_sprites.png) no-repeat -360px -10px;line-height:48px;margin:6px 0 0 10px;}
+.winlogin_register_box .vcode{width:90px;}
+.winlogin_register_box .vcode input{width:82px;}
+.winlogin_register_box .winlogin_vcode{float:left;height:21px;position:relative;padding:9px 0 0 167px;z-index:100;}
+.winlogin_register_box .winlogin_vcode .vcode_img{position:absolute;left:30px;top:-2px;}
+.winlogin_register_box .winlogin_vcode .correct{position:absolute;left:0;top:0;margin-left:7px;}
+.winlogin_register_box .submit_btn{height:80px;}
+.winlogin_register_box .submit_btn input{margin-left:97px;width:137px;height:29px;border:0;background:url(/images/winlogin_sprites.png) no-repeat 0 -45px;color:#fff;font-weight:bold;cursor:pointer;padding:0 0 3px 0;padding-bottom:0\9;overflow:hidden;}
+.winlogin_register_box .submit_btn input.btn_login_hover{background-position:-140px -45px;}
+.winlogin_register_box .submit_btn .hint{padding-top:9px;}
+.winlogin_register_box .submit_btn a,.winlogin_register_box .submit_btn a:hover{color:#9c9c9c;}
+.winlogin_register_box p.winerror{position:relative;z-index:200;}
+.winlogin_register_box p.winerror .error{position:absolute;display:block;width:214px;height:58px;left:98px;top:21px;background:url(/images/winlogin_sprites.png) no-repeat 0 -75px;padding:13px 0 0 10px;color:#666;line-height:16px;height:57px\9;padding-top:14px\9;}
+.winlogin_register_box p.winerror .error b{display:block;color:#404040;font-weight:bold;padding:0 0 3px 13px;}
+.winlogin_register_box .winlogin_frist{position:relative;}
+.winlogin_frist ul{border:1px solid #d9d9d9;border-top:0;position:absolute;top:26px;left:98px;width:235px;background:#fff;z-index:110;}
+.winlogin_frist ul li{height:25px;line-height:25px;padding:0 0 0 9px;color:#9c9c9c;cursor:pointer;}
+.winlogin_frist .winlogin_intelligent{background:#fdefc7;}
+.winlogin_success p{position:relative;height:56px;width:286px;padding-left:122px;}
+.winlogin_success p i{display:block;height:52px;width:32px;position:absolute;left:62px;top:0;background:url(/images/winlogin_sprites.png) no-repeat 0 -150px;}
+.winlogin_success p b{display:block;font:bold 14px Arial;padding-bottom:7px;}
+.winlogin_success .submit_btn{height:240px}
+
+.winlogin_success .submit_btn input{margin-left:122px;width:71px;height:26px;border:0;background:url(/images/winlogin_sprites.png) no-repeat -230px -75px;color:#fff;font-weight:bold;cursor:pointer;padding:0 0 3px 0;padding-bottom:0\9;overflow:hidden;}
+.winlogin_success .submit_btn input.btn_login_hover{background-position:-305px -75px;}
+.winlogin_success .submit_btn .hint{padding:14px 0 0 122px;width:286px;}
+.winlogin_register_box .winerror02 .error{position:absolute;display:block;width:180px;height:48px;left:98px;top:21px;background:url(/images/winlogin_sprites.png) no-repeat -230px -105px;padding:13px 0 0 0;color:#404040;overflow:hidden;padding-top:14px\9;height:47px\9;}
+.winlogin_register_box .winerror02 .error input{border:none;float:left;width:auto;height:auto;padding:0;margin:0 3px 0 11px;*margin:-4px -1px -4px 6px;_display:inline;}
+.winlogin_register_box .winerror02 .error b{display:block;padding:0 0 6px 11px;}
+.winlogin_register_box .winerror02 .error span{float:left;}
+.winerror02 .error span.error_name{margin-right:33px;}
+.winlogin_register_box .login_btn{padding:0 0 0 96px;height:63px;}
+.winlogin_register_box .login_btn input{width:94px;height:27px;float:left;background:url(/images/winlogin_sprites.png) no-repeat -35px -150px;border:none;font-size:0;line-height:81px;overflow:hidden;cursor:pointer;}
+.winlogin_register_box .login_btn input.btn_login_hover{background-position: -35px -178px}
+.winlogin_register_box .login_btn a{float:left;padding:9px 0 0 12px;}
+.winlogin_register_waiting{height:117px;width:282px;padding:57px 0 0 126px;background:url(/images/loading1.gif) no-repeat 97px 56px;font-size:14px;}
+.winlogin_register_box .login_noneright .winlogin_vcode{padding-left:152px;}
+.winlogin_register_box .login_noneright .winlogin_vcode .vcode_img{left:15px;}
+
+.winlogin_replacetype01,.winlogin_replacetype02{float:left;padding:7px 0 0 18px;background:url(/images/winlogin_sprites.png) no-repeat -226px -174px;}
+.winlogin_replacetype02{ background-position:-341px -175px}
+.winlogin_register_box .login_btn02 input{background-position:-130px -150px;}
+.winlogin_register_box .login_btn02 input.btn_login_hover{background-position:-130px -180px}
+
+/*20120604加合作登录入口-张倩*/
+.co_login{color:#878787;margin:-7px 0 0 17px;overflow:hidden; padding-bottom:7px;width:390px;}
+.co_login .icon { margin-top:11px; }
+.co_login a { float:left;border-right:1px solid #d9d9d9;height:16px;line-height:16px;margin:0 0 8px 0;line-height:18px;padding-left:6px;}
+.co_login a span { background:url(/images/icon_cologin.png) no-repeat;display:block;float:left;height:16px;position:relative;width:16px;margin-right:4px;_margin-right:2px;overflow:hidden;}
+.co_login .icon_sina{ background-position:0 0; }
+.co_login .icon_alipay{ background-position:-20px 0; }
+.co_login .icon_renren{ background-position:-40px 0; }
+.co_login .icon_qq{ background-position:0 -20px;}
+.co_login .icon_msn{ background-position:-20px -20px; }
+.co_login .icon_shengda{ background-position:-40px -20px;}
+.co_login .icon_baidu{ background-position:0 -40px; }
+.co_login .icon_163{ background-position:-20px -40px;}
+.co_login .icon_139{ background-position:-40px -40px;}
+.co_login .icon_fetion { background-position:0 -60px; }
+.co_login .icon01{width:61px;padding-left:0;}
+.co_login .icon02{width:49px;font-family:Arial;}
+.co_login .icon03{width:73px;}
+.co_login .icon04{width:61px;}
+.co_login .icon05{width:50px;border-right:none;}
+.co_login .icon06{width:61px;padding-left:0;font-family:Arial;}
+.co_login .icon07{width:49px;}
+.co_login .icon08{width:73px;}
+.co_login .icon09{width:73px;border-right:none;}
+
+

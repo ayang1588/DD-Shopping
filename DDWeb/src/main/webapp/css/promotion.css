@@ -1,0 +1,62 @@
+﻿@charset "utf-8";
+
+.b{ font-weight:bold;}
+/*单品页-出版品促销模块2009-7-22 jn*/
+.promotion_product_book{ width:517px;  border-top:solid 1px #f5ebd2; border-bottom:solid 1px #f5ebd2; background-color:#fff9eb; margin-bottom:15px; margin-top:5px; padding-left:11px; color:#404040}
+.promotion_product_book_icon{ width:17px; height:17px; margin:6px 0px 0 0px; float:left; overflow:hidden;}
+.promotion_product_book_text{float:left; padding-top:8px; padding-bottom:6px; float:left; line-height:15px; padding-left:9px; width:485px;}
+
+
+/*单品页-百货促销模块2009-7-22 jn*/
+.promotion_product_b2c{ width:502px;  border-top:solid 1px #f5ebd2; border-bottom:solid 1px #f5ebd2; background-color:#fff9eb; margin-bottom:15px; margin-top:5px; padding-left:11px;}
+.promotion_product_b2c_icon{ width:17px; height:17px; margin:6px 0px 0 0px; float:left; overflow:hidden;}
+.promotion_product_b2c_text{float:left; padding-top:8px; padding-bottom:6px; float:left; line-height:15px; padding-left:9px; width:470px;}
+
+
+/*列表页-百货图文版促销模块2009-7-22 jn*/
+.promotion_list_b2c{ width:576px;  border-top:solid 1px #f5ebd2; border-bottom:solid 1px #f5ebd2; background-color:#fff9eb; margin:6px 0 2px 25px; padding-left:11px;}
+.promotion_list_b2c_icon{ width:17px; height:17px; margin:6px 0px 0 0px; float:left; overflow:hidden;}
+.promotion_list_b2c_text{float:left; padding-top:8px; padding-bottom:6px; line-height:15px; padding-left:9px; width:545px;}
+
+
+/*列表页-百货图版促销模块2009-7-22 jn*/
+.promotion_list_b2c_p{ width:156px; height:28px; }
+.promotion_list_b2c_p_icon{ width:17px; height:17px; margin:-3px 0px 0 0px; float:left; overflow:hidden; position:relative;}
+.promotion_list_b2c_p_text{float:left; width:122px; height:28px; overflow:hidden; line-height:14px; padding-left:5px; }
+
+ 
+/*鼠标滑过促销模块2009-7-22 jn*/
+.promotion_mo{ width:145px; background:#fff7e0; border:1px solid #878787; padding:8px 8px 3px 8px;}
+.promotion_mo_pic{ width:92px;background:#fff7e0; border:1px solid #878787; padding: 6px 8px; }
+.promotion_mo_pic img{ width:90px; height:90px; border:1px solid #d3d3d3;}
+.promotion_mo_pic_text{ height:28px; overflow:hidden; line-height:14px; width:90px; padding-bottom:4px; margin:0 auto;}
+
+
+/*列表页-图书促销模块2009-7-27 yinxt*/
+.promotion_list_book{ width:576px;  border-top:solid 1px #f5ebd2; border-bottom:solid 1px #f5ebd2; background-color:#fff9eb; margin:6px 0 2px 25px; padding-left:11px; color:#404040}/*分类列表*/
+.promotion_list_book_2 {width:576px;  border-top:solid 1px #f5ebd2; border-bottom:solid 1px #f5ebd2; background-color:#fff9eb; margin:6px 0 2px 21px; padding-left:11px;}/*智能货架*/
+.promotion_list_book_3 {width:576px;  border-top:solid 1px #f5ebd2; border-bottom:solid 1px #f5ebd2; background-color:#fff9eb; margin:6px 0 2px 11px; padding-left:11px;}/*旧分类*/
+.promotion_list_book_icon{ width:17px; height:17px; margin:6px 0px 0 0px; float:left; overflow:hidden;}
+.promotion_list_book_text{float:left; padding-top:8px; padding-bottom:6px; float:left; line-height:15px; padding-left:9px; width:545px;}
+.red { color:#CC3300;}
+
+
+/*全站搜索-出版品图文版促销模块2009-7-28 qsy*/
+.promotion_list_allsearch{ width:587px;  border-top:solid 1px #f5ebd2; border-bottom:solid 1px #f5ebd2; background-color:#fff9eb; margin:6px 0 2px 0; padding-left:11px;}
+.promotion_list_allsearch_icon{ width:17px; height:17px; margin:6px 0px 0 0px; float:left; overflow:hidden;}
+.promotion_list_allsearch_text{float:left; padding:8px 0 6px 9px; float:left; line-height:15px; width:545px}
+
+
+/*全站搜索-弹窗促销模块2009-7-28 qsy*/
+.promotion_window_allsearch{ width:244x;  border-top:1px solid #f5ebd2; border-bottom:1px solid #f5ebd2; background:#fff9eb; margin:2px 0 6px 0; padding-left:11px;}
+.promotion_window_allsearch_icon{ width:17px; margin:6px 0px 0 0px; float:left; overflow:hidden;}
+.promotion_window_allsearch_text{ float:left; padding:8px 0 6px 9px; line-height:15px; width:217px;}
+
+
+/*列表页-全站搜索促销模块2009-7-28 qsy*/
+.promotion_list_allsearch_p{ width:156px; height:35px;}
+.promotion_list_allsearch_p_icon{ width:17px; height:17px; margin:-3px 0px 0 0px; float:left; overflow:hidden; position:relative}
+.promotion_list_allsearch_p_text{float:left; width:122px; overflow:hidden; line-height:15px; padding-left:5px;}
+
+
+

@@ -1,0 +1,39 @@
+﻿@charset "utf-8";
+html{font-size:12px;color:#404040;}
+body,button,div,ul,li,p,dl,dd,h4,h2,h3,h4,h5,h6,img,iframe,input,form{margin:0;padding:0;list-style-type:none;}
+img{border:0;}
+
+.toolbar{z-index:10000;bottom:2px;height:30px;position: fixed; _position:absolute; width: 100%; left: 0}
+.footpop{clear:both; background:url(/images/toolbar.gif) 0 -38px repeat-x;height:28px;right:2px;position:absolute;z-index: 10; border:solid #b4bec8 1px; box-shadow:0 0 6px rgba(0,0,0,0.2); border-radius: 3px;}
+.footpop .inner{height:28px; _display: inline;}
+.footpop .flogo{background:url(/images/toolbar.gif) 0 -19px no-repeat; display: block; width: 64px; height: 14px; margin-top: 2px}
+.footpop .arrow,.footpop .off,.footpop .mail{background:url(/images/toolbar.gif) 0 -96px no-repeat;display: block;_display:inline; width:11px;height:11px;cursor:pointer;float:left; margin: 8px; overflow: hidden;}
+.footpop .off{background-position: -16px -96px;}
+.footpop .mail{background-position: -32px -96px; width: 15px; margin: 3px 0 0 0;}
+.footpop .closetoolbar{background:url(/images/toolbar.gif) 0 -128px no-repeat; position: absolute; right: 5px; top: 3px; display: block; width: 11px; height: 10px;}
+.footpop ul{height:19px;line-height:19px;padding-top:5px;overflow:hidden;float: left;_display: inline; }
+.footpop ul li{float:left;background:url(/images/toolbardot.png) left top repeat-y; text-align:center; padding: 0 10px;}
+.footpop ul li img{float: left; margin-right: 5px;}
+.footpop .inner a{color:#1e82aa;text-decoration:underline; text-shadow: 1px 1px 1px #FFF; float: left; display: block;}
+.footpop .inner a:hover{color:#00a0f0;}
+.footpop .inner .message,.footpop .inner .reivew{ text-decoration: none;}
+.footpop .red{color:#ff4b00; font-weight:bold; display:inline-block; width:23px; text-align: left; cursor: pointer; margin-left: 5px;}
+.footpop .mouseenter a{color:#00a0f0;}
+.footpop .mouseenter .arrow{background-position: 0 -112px;}
+.footpop .mouseenter .off{background-position: -16px -112px;}
+.footpop .mouseenter .mail{background-position: -32px -112px;}
+.footpop .mouseenter .flogo{background-position: 0 0;}
+.footpop .open{position: absolute; left: 90px; bottom: 40px; *width: 308px; border: 1px solid #b4dce6; background: #FFF;
+line-height: 20px; box-shadow:0 0 6px rgba(0,0,0,0.2); display: none;}
+.footpop .open_content{ padding:8px; position:relative; _zoom:1;}
+.footpop .e1,.footpop .e2{ display:block; color:#FFF; height:16px; z-index:2; position:absolute; float:left; vertical-align:middle; font:16px/16px 'Helvetica Neue',Helvetica,Arial,Sans-serif}
+.footpop .open_rut{ bottom:-10px; left: 30px; width:16px; height:10px; _zoom:1; overflow:hidden; position: absolute;}
+.footpop .open .e1{ top:-8px; }
+.footpop .open .e2{ top:-7px;  color: #b4dce6; z-index:1;}
+.footpop .open_title{background:#f5f5f5; color:#c8c8c8;font-weight: bold; height: 18px; line-height: 18px; margin: 1px;padding-left: 5px; position: relative;}
+.footpop .button{text-align: center; margin-top:8px;}
+.footpop .bluebutton{background:url(/images/toolbar.gif) 0 -71px repeat-x; display: inline-block; line-height: 20px; color: #FFF; text-decoration: none; width: 54px; text-align: center; margin-right: 5px;}
+.footpop .text{ color: #323232; line-height: 22px;}
+.footpop .text img,.footpop .text a{margin-right: 5px;}
+.footpop .text a{color: #3296e1;text-decoration: none;}
+.footpop .text a:hover{text-decoration: underline;}

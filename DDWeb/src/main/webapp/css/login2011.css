@@ -1,0 +1,95 @@
+﻿@charset "utf-8";
+*{margin:0;padding:0}
+img{border:0;}
+* ul,* ol,* li{list-style:none;}
+.clear{clear:both;line-height:0px;height:0px;font-size:0px;overflow:hidden;}
+
+.login_wrap{height:663px;text-align:center;background:url(/images/login_bg_20110808.png);font-size:12px;color:#404040;}
+.login_header{margin:0 auto;width:960px;height:80px;text-align:left;}
+.login_header h1{padding:22px 0 0 73px;}
+.login_main {height:583px;text-align:left;}
+.login_panel {position:relative;margin:0 auto;width:960px;height:583px;overflow:hidden;z-index:200;}
+.login_main a{color:#1a66b3;text-decoration:none;}
+.login_main a:hover{color:#1a66b3;text-decoration:underline;}
+.login_wrap input{font-family:Arial;}
+
+.right_panel {position:absolute;width:451px;overflow:hidden;top:66px;right:48px;}
+.login_frame_top,.login_frame_bottom{height:4px;width:451px;overflow:hidden;font-size:0;line-height:0;background:url(/images/login_sprites_20110808.png) no-repeat 0 0;}
+.login_frame_bottom{height:42px;background-position:0 -4px;}
+.login_frame_border{border-left:1px solid #d1d1cf;border-right:1px solid #d1d1cf;width:445px;padding:0 2px;background:#f4f4f4;}
+.login_frame{width:445px;background:#fff;margin:0 auto;overflow:hidden;}
+.right_panel .login_title{color:#9c9c9c;text-align:right;padding:27px 41px 0 20px;width:384px;height:46px;}
+.right_panel .login_title i{float:left;margin-top:-6px;_display:inline;width:90px;height:18px;background:url(/images/login_sprites_20110808.png) no-repeat -146px -46px;}
+.right_panel .login_title a{float:right;width:73px;height:24px;background:url(/images/login_sprites_20110808.png) no-repeat 0 -46px;font-size:0;line-height:72px;overflow:hidden;margin:-6px 0 0 10px;}
+.right_panel .login_title a:hover{background-position:-73px -46px;}
+
+.right_panel .clearfix{height:56px;}
+.right_panel label{float:left;width:92px;padding:7px 18px 0 0;text-align:right;}
+.right_panel .login_input{float:left;width:235px;height:24px;border:1px solid #d9d9d9;overflow:hidden;background:#fff;}
+.right_panel .clearfix input{border:1px solid #fff;width:227px;height:21px;padding:1px 0 0 6px;margin:0;*margin-top:-1px;line-height:21px;font-size:12px;color:#404040;}
+.right_panel .clearfix input.tip{border:1px solid #fff;}
+.right_panel .clearfix input.focus{border:1px solid #66ccff;}
+.right_panel .hint{display:block;clear:both;padding:6px 0 0 116px;color:#9c9c9c;width:329px;}
+.right_panel .error{display:block;clear:both;padding:5px 0 0 116px;color:#c30;}
+.right_panel .forgotpassword{padding:7px 0 0 10px;float:left;}
+.right_panel .replacetype01{padding:7px 0 0 23px;float:left;background:url(/images/signin_replacetype.png) no-repeat 10px 7px;*background-position:10px 6px;}
+.right_panel .replacetype02{padding:7px 0 0 23px;float:left;background:url(/images/signin_replacetype.png) no-repeat -105px 6px;*background-position:-105px 5px;}
+.right_panel .vcode{width:90px;}
+.right_panel .vcode input{width:82px;}
+.right_panel .login_vcode{float:left;height:21px;position:relative;padding:9px 0 0 156px;z-index:100;}
+.right_panel .login_vcode .vcode_img{position:absolute;left:15px;top:-2px;}
+.right_panel .login_btn{padding:0 0 0 108px;height:63px;}
+.right_panel .login_btn input{width:94px;height:27px;float:left;background:url(/images/login_sprites_20110808.png) no-repeat -237px -46px;border:none;font-size:0;line-height:81px;overflow:hidden;cursor:pointer;}
+.right_panel .login_btn input.btn_login_hover{background-position:-331px -46px}
+
+.right_panel p.winerror{position:relative;z-index:200;}
+.right_panel p.winerror .error{position:absolute;display:block;width:214px;height:58px;left:110px;top:21px;background:url(/images/login_sprites_20110808.png) no-repeat 0 -74px;padding:13px 0 0 10px;color:#666;line-height:16px;height:57px\9;padding-top:14px\9;}
+.right_panel p.winerror .error b{display:block;color:#404040;font-weight:bold;padding:0 0 3px 13px;}
+.right_panel .login_frist{position:relative;}
+.right_panel .winerror02 .error{position:absolute;display:block;width:180px;height:46px;left:110px;top:21px;background:url(/images/login_sprites_20110808.png) no-repeat -237px -74px;padding:15px 0 0 0;color:#404040;overflow:hidden;padding-top:16px\9;height:45px\9;}
+.right_panel .winerror02 .error input{border:none;float:left;width:auto;height:auto;padding:0;margin:0 3px 0 11px;*margin:-4px -1px -4px 6px;_display:inline;}
+.right_panel .winerror02 .error b{display:block;padding:0 0 6px 11px;}
+.right_panel .winerror02 .error span{float:left;}
+.winerror02 .error span.error_name{margin-right:33px;}
+
+.login_frame_border .login_btn02 input{background-position:0 -145px;}
+.login_frame_border .login_btn02 input.btn_login_hover{background-position:-100px -145px}
+
+/*20120604加合作登录入口-张倩*/
+.co_login{color:#878787;margin:-7px 0 9px 20px;_margin:-7px 0 8px 20px; overflow:hidden;width:400px;}
+.co_login .icon{margin-top:11px;}
+.co_login a{float:left;border-right:1px solid #d9d9d9;height:16px;line-height:16px;margin:0 0 8px 0;line-height:18px;padding-left:8px;}
+.co_login a span{background:url(/images/icon_cologin.png) no-repeat;display:block;float:left;height:16px;position:relative;width:16px;margin-right:4px;_margin-right:2px;overflow:hidden;}
+.co_login .icon_sina{ background-position:0 0; *top:-2px; }
+.co_login .icon_alipay{ background-position:-20px 0; }
+.co_login .icon_renren{ background-position:-40px 0;_top:-1px; }
+.co_login .icon_qq{ background-position:0 -20px;}
+.co_login .icon_msn{ background-position:-20px -20px; }
+.co_login .icon_shengda{ background-position:-40px -20px;*top:-1px;}
+.co_login .icon_baidu{ background-position:0 -40px;_top:-2px; }
+.co_login .icon_163{ background-position:-20px -40px;_top:-2px;}
+.co_login .icon_139{ background-position:-40px -40px;}
+.co_login .icon_fetion { background-position:0 -60px; }
+.co_login .icon01{width:63px;padding-left:0;}
+.co_login .icon02{width:51px;font-family:Arial;}
+.co_login .icon03{width:75px;}
+.co_login .icon04{width:63px;}
+.co_login .icon05{width:52px;border-right:none;}
+.co_login .icon06{width:63px;padding-left:0;font-family:Arial;}
+.co_login .icon07{width:51px;}
+.co_login .icon08{width:75px;}
+.co_login .icon09{width:73px;border-right:none;}
+
+/*页尾*/
+.public_footer_box {width:100%;margin:0 auto;font:12px "\5b8b\4f53",Arial,Helvetica,sans-serif;clear:both;}
+.public_footer{margin:0 auto;width:950px;padding:32px 5px 0;font:12px;color:#666;overflow:hidden;}
+.public_footer a{color:#666!important;text-decoration:none;font-size:12px;}
+.public_footer a:hover{color:#f60!important;text-decoration:underline;}
+.public_footer .sep{display:inline-block;padding:0 18px;} 
+.public_footer .footer_copyright{padding-left:168px;margin:0 auto;width:792px;}
+.public_footer .footer_copyright span {float:left;display:inline}
+.public_footer .footer_copyright span{padding-top:10px;}
+.public_footer .footer_copyright a {padding-right:4px;} 
+.public_footer .footer_icon {margin:10px 0 0 335px;width:300px;height:57px;}
+.public_footer .validator,.public_footer .knet {float:left;display:inline;padding:0 5px;width:135px;height:47px;}
+

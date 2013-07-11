@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dangdang.dao.ProductDao">
+    <resultMap id="BaseResultMap" type="com.dangdang.pojo.Product">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="product_name" property="productName" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="add_time" property="addTime" jdbcType="BIGINT"/>
+        <result column="fixed_price" property="fixedPrice" jdbcType="DOUBLE"/>
+        <result column="dang_price" property="dangPrice" jdbcType="DOUBLE"/>
+        <result column="keywords" property="keywords" jdbcType="VARCHAR"/>
+        <result column="has_deleted" property="hasDeleted" jdbcType="SMALLINT"/>
+        <result column="product_pic" property="productPic" jdbcType="VARCHAR"/>
+        <result column="purchase_times" property="purchaseTimes" jdbcType="INTEGER"/>
+        <result column="collection_times" property="collectionTimes" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, product_name, description, add_time, fixed_price, dang_price, keywords, has_deleted,
+        product_pic, purchase_times, collection_times
+    </sql>
+
+    <select id="selectProductByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from d_product
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from d_product
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insertProduct" parameterType="com.dangdang.pojo.Product">
+        insert into d_product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="productName != null">
+                product_name,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="addTime != null">
+                add_time,
+            </if>
+            <if test="fixedPrice != null">
+                fixed_price,
+            </if>
+            <if test="dangPrice != null">
+                dang_price,
+            </if>
+            <if test="keywords != null">
+                keywords,
+            </if>
+            <if test="hasDeleted != null">
+                has_deleted,
+            </if>
+            <if test="productPic != null">
+                product_pic,
+            </if>
+            <if test="purchaseTimes != null">
+                purchase_times,
+            </if>
+            <if test="collectionTimes != null">
+                collection_times,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="productName != null">
+                #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="addTime != null">
+                #{addTime,jdbcType=BIGINT},
+            </if>
+            <if test="fixedPrice != null">
+                #{fixedPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="dangPrice != null">
+                #{dangPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="keywords != null">
+                #{keywords,jdbcType=VARCHAR},
+            </if>
+            <if test="hasDeleted != null">
+                #{hasDeleted,jdbcType=SMALLINT},
+            </if>
+            <if test="productPic != null">
+                #{productPic,jdbcType=VARCHAR},
+            </if>
+            <if test="purchaseTimes != null">
+                #{purchaseTimes,jdbcType=INTEGER},
+            </if>
+            <if test="collectionTimes != null">
+                #{collectionTimes,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateProductByPrimaryKey" parameterType="com.dangdang.pojo.Product">
+        update d_product
+        <set>
+            <if test="productName != null">
+                product_name = #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime,jdbcType=BIGINT},
+            </if>
+            <if test="fixedPrice != null">
+                fixed_price = #{fixedPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="dangPrice != null">
+                dang_price = #{dangPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="keywords != null">
+                keywords = #{keywords,jdbcType=VARCHAR},
+            </if>
+            <if test="hasDeleted != null">
+                has_deleted = #{hasDeleted,jdbcType=SMALLINT},
+            </if>
+            <if test="productPic != null">
+                product_pic = #{productPic,jdbcType=VARCHAR},
+            </if>
+            <if test="purchaseTimes != null">
+                purchase_times = #{purchaseTimes,jdbcType=INTEGER},
+            </if>
+            <if test="collectionTimes != null">
+                collection_times = #{collectionTimes,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+    <!--容器启动初始化监听器-->
+    <bean class="com.dangdang.commons.listener.WebInitListener"></bean>
+
+    <!--用户登录状态拦截器-->
+    <mvc:interceptors>
+        <bean class="com.dangdang.commons.interceptor.LoginStatusInterceptor">
+            <property name="loginValidTime" value="30" />
+        </bean>
+        <mvc:interceptor>
+            <mvc:mapping path="/cart/*"/>
+            <!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
+            <bean class="com.dangdang.commons.interceptor.AuthValidateInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+    <!--自动扫描controller包中的@controller注解-->
+    <!--<context:component-scan base-package="com.dangdang.controller" />-->
+    <!-- 扫描所有的controller 但是不扫描service-->
+    <context:component-scan base-package="com.dangdang">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
+
+    <!--避免IE执行AJAX时，返回JSON出现下载文件-->
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <!--返回类型text，而不是文件-->
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <!-- json转换器 -->
+                <ref bean="mappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+
+    <!-- 对模型视图名称的解析，在模型视图名称添加前后缀 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/WEB-INF/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+    <!--验证码-->
+    <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg>
+                    <props>
+                        <prop key="kaptcha.border">no</prop>
+                        <prop key="kaptcha.border.color">105,179,90</prop>
+                        <!--<prop key="kaptcha.textproducer.font.color">red</prop>-->
+                        <prop key="kaptcha.image.width">130</prop>
+                        <prop key="kaptcha.textproducer.font.size">25</prop>
+                        <prop key="kaptcha.image.height">30</prop>
+                        <prop key="kaptcha.session.key">code</prop>
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                        <!--<prop key="kaptcha.textproducer.font.names">宋体,楷体,微软雅黑</prop>-->
+
+                        <!--kaptcha.border  是否有边框  默认为true  我们可以自己设置yes，no-->
+                        <!--kaptcha.border.color   边框颜色   默认为Color.BLACK-->
+                        <!--kaptcha.border.thickness  边框粗细度  默认为1-->
+                        <!--kaptcha.producer.impl   验证码生成器  默认为DefaultKaptcha-->
+                        <!--kaptcha.textproducer.impl   验证码文本生成器  默认为DefaultTextCreator-->
+                        <!--kaptcha.textproducer.char.string   验证码文本字符内容范围  默认为abcde2345678gfynmnpwx-->
+                        <!--kaptcha.textproducer.char.length   验证码文本字符长度  默认为5-->
+                        <!--kaptcha.textproducer.font.names    验证码文本字体样式  默认为new Font("Arial", 1, fontSize), new Font("Courier", 1, fontSize)-->
+                        <!--kaptcha.textproducer.font.size   验证码文本字符大小  默认为40-->
+                        <!--kaptcha.textproducer.font.color  验证码文本字符颜色  默认为Color.BLACK-->
+                        <!--kaptcha.textproducer.char.space  验证码文本字符间距  默认为2-->
+                        <!--kaptcha.noise.impl    验证码噪点生成对象  默认为DefaultNoise-->
+                        <!--kaptcha.noise.color   验证码噪点颜色   默认为Color.BLACK-->
+                        <!--kaptcha.obscurificator.impl   验证码样式引擎  默认为WaterRipple-->
+                        <!--kaptcha.word.impl   验证码文本字符渲染   默认为DefaultWordRenderer-->
+                        <!--kaptcha.background.impl   验证码背景生成器   默认为DefaultBackground-->
+                        <!--kaptcha.background.clear.from   验证码背景颜色渐进   默认为Color.LIGHT_GRAY-->
+                        <!--kaptcha.background.clear.to   验证码背景颜色渐进   默认为Color.WHITE-->
+                        <!--kaptcha.image.width   验证码图片宽度  默认为200-->
+                        <!--kaptcha.image.height  验证码图片高度  默认为50-->
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+    <!--文件上传，需要jar：commons-fileupload-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+    <!--<property name="defaultEncoding">-->
+    <!--<value>UTF-8</value>-->
+    <!--</property>-->
+    <!--<property name="maxUploadSize">-->
+    <!--<value>32505856</value>&lt;!&ndash; 上传文件大小限制为31M，31*1024*1024 &ndash;&gt;-->
+    <!--</property>-->
+    <!--<property name="maxInMemorySize">-->
+    <!--<value>4096</value>-->
+    <!--</property>-->
+    <!--</bean>-->
+</beans>
