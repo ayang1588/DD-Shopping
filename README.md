@@ -3,11 +3,11 @@ DD-Shopping
 
 该项目为本人独立完成。
 
-项目名称：通用电子商务平台 
+项目名称：通用电子商务平台
 项目时间：2013年4月 - 2013年5月
 软件环境：Windows + Tomcat6.0 + MySQL + Redis        
 开发工具：Intellij IDEA 
-所用技术：数据抓取，SpringMVC，MyBatis，Javamail，Javascript，AJAX等
+所用技术：HtmlUnit，SpringMVC，MyBatis，Javamail，Javascript，AJAX等
 项目描述：
   一、DataPre是自己实现的定向抓取当当网数据的模块，利用Jsoup和HtmlUnit实现定下抓取，
     封然后装所需数据，通过事务保存至数据库，并同时下载图片。
